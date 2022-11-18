@@ -13,7 +13,7 @@ public class JPARepositoryAdapter extends AdapterOperations<CustomerModel, br.co
 {
 
     public JPARepositoryAdapter(JPARepository repository, ObjectMapper mapper) {
-        super(repository, mapper, d -> mapper.mapBuilder(d, CustomerModel.CustomerBuilder.class).build());
+        super(repository, mapper, d -> mapper.mapBuilder(d, CustomerModel.CustomerModelBuilder.class).build());
     }
 
     @Override
