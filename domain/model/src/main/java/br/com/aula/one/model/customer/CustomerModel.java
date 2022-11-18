@@ -8,7 +8,7 @@ import lombok.NoArgsConstructor;
 @Builder(toBuilder = true)
 @AllArgsConstructor
 @NoArgsConstructor
-public class Customer {
+public class CustomerModel {
 
 
     private Long id;

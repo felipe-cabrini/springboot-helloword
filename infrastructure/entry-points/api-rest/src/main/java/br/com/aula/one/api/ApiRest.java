@@ -1,5 +1,5 @@
 package br.com.aula.one.api;
-import br.com.aula.one.model.customer.Customer;
+import br.com.aula.one.model.customer.CustomerModel;
 import br.com.aula.one.usecase.findcustomer.CustomerUseCase;
 import lombok.AllArgsConstructor;
 import org.springframework.http.MediaType;
@@ -15,24 +15,24 @@ public class ApiRest {
 
 
     @PostMapping("/save")
-    public String save(@RequestBody Customer customer){
-        customerUseCase.saveCustomer(customer);
+    public String save(@RequestBody CustomerModel customerModel){
+        customerUseCase.saveCustomer(customerModel);
         return "customer saved";
     }
 
     @GetMapping("/findallusers")
-    public List<Customer> findAll() {
+    public List<CustomerModel> findAll() {
         return customerUseCase.listAllCustomers();
     }
 
     @GetMapping("/finduser/{id}")
-    public Customer finduser(@PathVariable(value = "id") Long id) {
+    public CustomerModel finduser(@PathVariable(value = "id") Long id) {
         return customerUseCase.findCustomer(id);
     }
 
     @PostMapping("/update")
-    public String update(@RequestBody Customer customer){
-        customerUseCase.update(customer);
+    public String update(@RequestBody CustomerModel customerModel){
+        customerUseCase.update(customerModel);
         return "customer updated";
     }
 

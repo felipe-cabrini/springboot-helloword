@@ -1,6 +1,6 @@
 package br.com.aula.one.usecase.findcustomer;
 
-import br.com.aula.one.model.customer.Customer;
+import br.com.aula.one.model.customer.CustomerModel;
 import br.com.aula.one.model.customer.gateways.CustomerRepository;
 import lombok.RequiredArgsConstructor;
 
@@ -15,19 +15,19 @@ public class CustomerUseCase {
         customerRepository.delete(id);
     }
 
-    public void saveCustomer(Customer customer) {
-        customerRepository.saveCustomer(customer);
+    public void saveCustomer(CustomerModel customerModel) {
+        customerRepository.saveCustomer(customerModel);
     }
 
-    public List<Customer> listAllCustomers() {
+    public List<CustomerModel> listAllCustomers() {
         return customerRepository.listAllUsers();
     }
 
-    public Customer findCustomer(Long id) {
+    public CustomerModel findCustomer(Long id) {
         return customerRepository.findUser(id);
     }
 
-    public void update(Customer customer) {
-        customerRepository.update(customer);
+    public void update(CustomerModel customerModel) {
+        customerRepository.update(customerModel);
     }
 }

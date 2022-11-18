@@ -1,18 +1,18 @@
 package br.com.aula.one.model.customer.gateways;
 
-import br.com.aula.one.model.customer.Customer;
+import br.com.aula.one.model.customer.CustomerModel;
 
 import java.util.List;
 
 public interface CustomerRepository {
 
-    void saveCustomer(Customer userModel);
+    void saveCustomer(CustomerModel userModel);
 
-    List<Customer> listAllUsers();
+    List<CustomerModel> listAllUsers();
 
-    Customer findUser(Long id);
+    CustomerModel findUser(Long id);
 
     void delete(Long id);
 
-    Customer update(Customer userModel);
+    CustomerModel update(CustomerModel userModel);
 }

@@ -1,34 +1,33 @@
 package br.com.aula.one.jpa;
 
 import br.com.aula.one.jpa.helper.AdapterOperations;
-import br.com.aula.one.model.customer.Customer;
+import br.com.aula.one.model.customer.CustomerModel;
 import br.com.aula.one.model.customer.gateways.CustomerRepository;
 import org.reactivecommons.utils.ObjectMapper;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
 
 @Repository
-public class JPARepositoryAdapter extends AdapterOperations<Customer, br.com.aula.one.jpa.Customer, Long, JPARepository> implements CustomerRepository
+public class JPARepositoryAdapter extends AdapterOperations<CustomerModel, br.com.aula.one.jpa.Customer, Long, JPARepository> implements CustomerRepository
 {
 
     public JPARepositoryAdapter(JPARepository repository, ObjectMapper mapper) {
-        super(repository, mapper, d -> mapper.mapBuilder(d,Customer.CustomerBuilder.class).build());
+        super(repository, mapper, d -> mapper.mapBuilder(d, CustomerModel.CustomerBuilder.class).build());
     }
 
     @Override
-    public void saveCustomer(Customer userModel) {
+    public void saveCustomer(CustomerModel userModel) {
         this.save(userModel);
     }
 
     @Override
-    public List<Customer> listAllUsers() {
+    public List<CustomerModel> listAllUsers() {
         return this.findAll();
     }
 
     @Override
-    public Customer findUser(Long id) {
+    public CustomerModel findUser(Long id) {
         return this.findById(id);
     }
 
@@ -38,7 +37,7 @@ public class JPARepositoryAdapter extends AdapterOperations<Customer, br.com.aul
     }
 
     @Override
-    public Customer update(Customer userModel) {
+    public CustomerModel update(CustomerModel userModel) {
         return this.update(userModel);
     }
 }
